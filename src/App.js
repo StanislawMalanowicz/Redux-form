@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // git działa ;)
@@ -57,8 +57,21 @@ function actors(state = initialActors, action) {
   }
 }
 
-const rootReducer = combineReducers({ movies, actors })
-const store = createStore(rootReducer, composeWithDevTools())
+const rootReducer = combineReducers({ movies, actors });
+const store = createStore(rootReducer, composeWithDevTools());
+
+const addActor = actor => ({type: "ADD_ACTOR", actor});
+const reset = () => ({type: 'RESET_ACTOR'})
+const deleteActor = actor => ({type: 'DELETE_ACTOR', actor})
+
+store.dispatch(addActor("Bruce Willis"));
+
+const actorsAction = bindActionCreators({add: addActor, reset, deleteActor}, store.dispatch);
+
+actorsAction.add("Nicole Kidman");
+actorsAction.deleteActor('Tom Hanks');
+actorsAction.reset();
+
 
 window.store = store;
 function App() {
