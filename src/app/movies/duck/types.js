@@ -1,0 +1,9 @@
+const ADD_MOVIE = "ADD_MOVIE";
+const DELETE_MOVIE = "DELETE_MOVIE";
+const RESET_MOVIE = "RESET_MOVIE";
+
+export default {
+  ADD_MOVIE,
+  DELETE_MOVIE,
+  RESET_MOVIE
+};
