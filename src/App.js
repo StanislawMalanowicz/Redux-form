@@ -3,6 +3,8 @@ import './App.css';
 import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+// git działa ;)
+console.log('hello from vs');
 
 const initialActors = {
   listName: 'Best',
