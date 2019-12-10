@@ -15,7 +15,7 @@ const moviesReducer =(state = initialMovies, action) => {
     case types.ADD_MOVIE:
       return {
         ...state,
-        movies: [...state.movies, action.film]
+        list: [...state.list, action.film]
       };
     case types.DELETE_MOVIE:
       return {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MoviesContainer from './app/movies/components/MoviesContainer';
+import AddMovieForm from './app/movies/components/AddMovieForm';
 
 class RefIput extends Component {
   state = { 
@@ -10,7 +11,7 @@ class RefIput extends Component {
   inputRef = React.createRef();
 
   updateText = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     this.setState({
       text: this.inputRef.current.value
     })
@@ -41,6 +42,7 @@ class App extends Component {
             </ul>
             <MoviesContainer/>
             <RefIput/>
+            <AddMovieForm/>
          </div>
      );
   }
