@@ -10,7 +10,7 @@ const moviesReducer =(state = initialMovies, action) => {
     case types.RESET_MOVIE:
       return {
         ...state,
-        movies: []
+        list: []
       };
     case types.ADD_MOVIE:
       return {
@@ -20,8 +20,13 @@ const moviesReducer =(state = initialMovies, action) => {
     case types.DELETE_MOVIE:
       return {
         ...state,
-        movies: [...state.movies.filter(el => el !== action.film)]
+        list: [...state.list.filter(el => el !== action.film)]
       };
+    case types.DELETE_LAST:
+      return {
+        ...state,
+        list: [...state.list.slice(0,-1)]
+      }
 
     default:
       return state;

@@ -41,7 +41,7 @@ class App extends Component {
               <li>Film 2</li>
             </ul>
             <MoviesContainer/>
-            <RefIput/>
+            {/* <RefIput/> */}
             <AddMovieForm/>
          </div>
      );
