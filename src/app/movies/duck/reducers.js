@@ -2,7 +2,7 @@ import types from './types'
 
 const initialMovies = {
   listName: "Favourite",
-  movies: ["Rambo III", "Kiler", "Terminator"]
+  list: ["Rambo III", "Kiler", "Terminator"]
 };
 
 const moviesReducer =(state = initialMovies, action) => {
