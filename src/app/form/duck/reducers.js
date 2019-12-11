@@ -2,8 +2,7 @@ import types from './types'
 
 const initialData = {
   listName: "personalInfo",
-  name: "",
-  email: "@@@",
+  email: "",
   pass: "",
   confirmPass: "",
   isPassCorrect: false
@@ -35,11 +34,11 @@ const formReducer =(state = initialData, action) => {
         confirmPass: action.password,
       };
     
-    // case types.DELETE_MOVIE:
-    //   return {
-    //     ...state,
-    //     movies: [...state.movies.filter(el => el !== action.film)]
-    //   };
+    case types.HANDLE_EMAIL:
+      return {
+        ...state,
+        email: action.email
+      };
 
     default:
       return state;
