@@ -27,14 +27,21 @@ const SubmitForm = (props) => {
         e.preventDefault()
         console.log('submit and validation')
     }
+    const emailRegex = /@/gm;
+    
+    const emailAlert = () => emailRegex.test(props.personalInfo.email) ? null : <span>niepoprawny email</span>;
 
+
+    const passAlert = () => props.personalInfo.pass.length >= 6 ? null: <span>hasko za krótkie</span>
+    //  <span>za krótkie hasło</span>
+    const secondPassAlert = () => props.personalInfo.isPassCorrect ? null : <span>haslo musi być takie samo</span>;
     return ( 
         <form onSubmit={handleSubmit}  >
-            email: <input type="email" ref={emailRef} onChange={handleEmailVal} /><br/>
-            <span>email is: <strong>{props.personalInfo.email}</strong></span>
+            email: <input type="email" ref={emailRef} onChange={handleEmailVal} />{emailAlert()}<br/>
+            {/* <span>email is: <strong>{props.personalInfo.email}</strong></span> */}
             <br/><br/>
-            pass: <input onChange={handleChange} ref={firstPassRef} type="password"/><br/><br/>
-            one more pass:<input onChange={handleSecondPass} ref={secondPassRef} type="password" /><br/><br/>
+            pass: <input onChange={handleChange} ref={firstPassRef} type="password"/>{passAlert()}<br/><br/>
+            one more pass:<input onChange={handleSecondPass} ref={secondPassRef} type="password" />{secondPassAlert()}<br/><br/>
             <button type="submit">zaloguj</button>
             {props.personalInfo.isPassCorrect ? <p>takie same hasla</p> : <p>rozne hasla</p>}
         </form>
